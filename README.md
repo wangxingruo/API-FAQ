@@ -2,9 +2,9 @@
 
 ## 接入、验签相关
 
-1. 签名认证
-https://huobiapi.github.io/docs/spot/v1/cn/#c64cd15fdc
-请对比使用Secret Key签名前的字符串与以下字符串的区别
+1. 签名认证  
+https://huobiapi.github.io/docs/spot/v1/cn/#c64cd15fdc  
+请对比使用Secret Key签名前的字符串与以下字符串的区别  
 ```
 GET\n
 api.huobi.vn\n
