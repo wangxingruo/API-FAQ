@@ -1,6 +1,6 @@
 # API-FAQ
 
-## 接入、验签相关
+### 接入、验签相关
 
 1. 经常断线或者丢数据
 > 请确认是否使用 api.huobi.pro 域名访问火币 API
@@ -38,7 +38,7 @@ AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&Signatu
 > 检查是否 POST 请求是否把业务参数也计算进签名
 > 检查 GET 请求是否将参数按照 ASCII 码表顺序排序
 
-## 行情相关
+### 行情相关
 1. 当前盘口数据最快多久更新一次？
 
 > 当前盘口数据数据源这边是一秒更新一次，无论是RESTful查询或是Websocket推送都是一秒一次
@@ -56,7 +56,7 @@ AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&Signatu
 > 历史K线获取：WebSocket通过market.$symbol$.kline.$period$可获取[1501174800, 2556115200]时间范围内的k线数据  
 
 
-## 交易相关
+### 交易相关
 1. account-id是什么？
 > account-id对应用户不同业务账户的ID，可通过/v1/account/accounts接口获取，并根据account-type区分具体账户。
 
@@ -80,7 +80,7 @@ AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&Signatu
 > 为保证订单的及时送达以及低延时， 订单推送的结果是在撮合后直接推送，此时订单并未完成资产的结算，建议结合资产推送主题``accounts``同步接收资产变更的消息，确保资金已经完成结算，或保证账户中留有相对充裕的金额。
 
 
-## 账户充提相关
+### 账户充提相关
 1. 创建提币时返回api-not-support-temp-addr错误
 > API创建提币时仅支持已在提现地址列表中的地址，暂不支持API添加地址至提笔地址管理中，需在网页端或APP端添加地址后才可在API中进行提币操作。
 2. USDT提币时返回Invaild-Address错误
