@@ -14,7 +14,6 @@ GET\n
 api.huobi.vn\n
 /v1/account/accounts\n
 AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-10-28T07%3A28%3A38
-
 ```
 对比时请注意一下几点：
 > 1) 签名参数按照ASCII码排序
