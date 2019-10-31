@@ -2,30 +2,42 @@
 
 ## 接入、验签相关
 
-1. 签名认证  
-https://huobiapi.github.io/docs/spot/v1/cn/#c64cd15fdc  
-请对比使用Secret Key签名前的字符串与以下字符串的区别  
+1. 经常断线或者丢数据
+> 请确认是否使用 api.huobi.pro 域名访问火币 API
+> 请使用日本云服务器
+
+2. 签名认证
+https://huobiapi.github.io/docs/spot/v1/cn/#c64cd15fdc
+请对比使用Secret Key签名前的字符串与以下字符串的区别
 ```
 GET\n
 api.huobi.vn\n
 /v1/account/accounts\n
 AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2019-10-28T07%3A28%3A38
+
 ```
 对比时请注意一下几点：
 > 1) 签名参数按照ASCII码排序
 > 2) 签名串需进行URI编码
-> 3) Get请求参数需在签名串中
-> 4) 时间为UTC时间转换为YYYY-MM-DDTHH:mm:ss
-> 5) 检查本机时间与标准时间是否存在偏差（偏差应小于1分钟）
-> 6) WebSocket发送验签认证消息时，消息体不需要URI编码
-> 7) 签名时所带Host应与请求接口时Host相同
-> 8) 若以上检查均正确时，请检查Api Key 与 Secret Key中是否存在隐藏特殊字符，影响签名
+> 3) 签名需进行 base64 编码
+> 4) Get请求参数需在签名串中
+> 5) 时间为UTC时间转换为YYYY-MM-DDTHH:mm:ss
+> 6) 检查本机时间与标准时间是否存在偏差（偏差应小于1分钟）
+> 7) WebSocket发送验签认证消息时，消息体不需要URI编码
+> 8) 签名时所带Host应与请求接口时Host相同
+> 9) 若以上检查均正确时，请检查Api Key 与 Secret Key中是否存在隐藏特殊字符，影响签名
 
-2. gateway-internal-error报错
+3. gateway-internal-error报错
 > 1) 请检查account-id是否正确填写
 > 2) 请检查是否为网络原因，若因网络原因请稍后重试
 > 3) 检查发送数据格式是否正确(标准JSON格式)。
 > 4) 检查POST请求头header是否声明为`Content-Type:application/json`
+
+4. login-required
+> 检查是否将AccessKeyId参数带入URL中
+> 检查参数 account-id 是否是由 GET /v1/account/accounts 接口返回的，而不是填的 UID
+> 检查是否 POST 请求是否把业务参数也计算进签名
+> 检查 GET 请求是否将参数按照 ASCII 码表顺序排序
 
 ## 行情相关
 1. 当前盘口数据最快多久更新一次？
