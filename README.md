@@ -36,13 +36,13 @@ AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&Signatu
 > /market/detail接口中的成交量、成交金额为24小时滚动数据（平移窗口大小24小时），可能会出现后一个窗口内的累计成交量、累计成交额小于前一窗口的情况
 
 3. K线常见信息获取：
-> 涨跌幅：(close价格- 0点的开盘价)/0点的开盘价
-> 开盘价：通过GET /market/history/kline接口读取日线数据，就能知道0点开盘价
-> 最新价：GET /market/detail/merged的close为最新价
-> 买卖盘：GET /market/depth
-> 买一卖一：GET /market/detail/merged的bid和ask
-> 历史K线获取：GET /market/history/kline，返回最大2000条数据
-> 历史K线获取：WebSocket通过market.$symbol$.kline.$period$可获取[1501174800, 2556115200]时间范围内的k线数据
+> 涨跌幅：(close价格- 0点的开盘价)/0点的开盘价  
+> 开盘价：通过GET /market/history/kline接口读取日线数据，就能知道0点开盘价  
+> 最新价：GET /market/detail/merged的close为最新价  
+> 买卖盘：GET /market/depth  
+> 买一卖一：GET /market/detail/merged的bid和ask  
+> 历史K线获取：GET /market/history/kline，返回最大2000条数据  
+> 历史K线获取：WebSocket通过market.$symbol$.kline.$period$可获取[1501174800, 2556115200]时间范围内的k线数据  
 
 
 ## 交易相关
@@ -50,14 +50,14 @@ AccessKeyId=rfhxxxxx-950000847-boooooo3-432c0&SignatureMethod=HmacSHA256&Signatu
 > account-id对应用户不同业务账户的ID，可通过/v1/account/accounts接口获取，并根据account-type区分具体账户。
 
 2. 下单数量、金额、小数限制、精度信息
-> 可使用/v1/common/symbols获取相关币对信息， 下单时注意最小下单数量和最小下单金额的区别
-> order-value-min-error: 下单金额小于最小交易额
-> order-orderprice-precision-error : 限价单价格精度错误
-> order-orderamount-precision-error : 下单数量精度错误
-> order-limitorder-price-max-error : 限价单价格高于限价阈值
-> order-limitorder-price-min-error : 限价单价格低于限价阈值
-> order-limitorder-amount-max-error : 限价单数量高于限价阈值
-> order-limitorder-amount-min-error : 限价单数量低于限价阈值
+> 可使用/v1/common/symbols获取相关币对信息， 下单时注意最小下单数量和最小下单金额的区别  
+> order-value-min-error: 下单金额小于最小交易额    
+> order-orderprice-precision-error : 限价单价格精度错误  
+> order-orderamount-precision-error : 下单数量精度错误  
+> order-limitorder-price-max-error : 限价单价格高于限价阈值  
+> order-limitorder-price-min-error : 限价单价格低于限价阈值  
+> order-limitorder-amount-max-error : 限价单数量高于限价阈值  
+> order-limitorder-amount-min-error : 限价单数量低于限价阈值  
 
 3. 下单client-order-id
 > client-order-id作为下单请求标识的一个参数，类型为字符串，长度为64。 此id为用户自己生成，24小时内有效。
